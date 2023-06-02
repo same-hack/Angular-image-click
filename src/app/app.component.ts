@@ -24,12 +24,20 @@ export class AppComponent {
    * 選択された画像のindexが入る
    * 赤枠で囲うCSSを適用するために使用
    */
-  selectedItem: number;
+  selectedItem: number | null;
   /**選択されたユーザ */
   selectedUser: any;
 
   /**画像クリックで動く */
   onSelectItem(index: number) {
+    // 同じ画像をクリックすると、選択中表示を外す
+    if (this.selectedItem === index) {
+      this.selectedItem = null;
+      this.selectedUser = null;
+      return;
+    }
+
+    // 選択中の画像を更新
     this.selectedItem = index;
     this.selectedUser = this.users[index];
   }
