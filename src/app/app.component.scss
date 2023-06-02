@@ -1,0 +1,23 @@
+.container {
+  // 画像を横に並べる
+  display: flex;
+  // ディスプレイ幅に応じて折り返す
+  flex-wrap: wrap;
+  .image-wrap {
+    // 画像サイズ等の設定
+    width: 200px;
+    height: 200px;
+    background-color: lightgoldenrodyellow;
+    margin: 10px 10px 0 0;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+    // 選択された画像のみに適用するCSS
+    &.selected {
+      border: solid 5px red;
+      width: 195px;
+      height: 195px;
+    }
+  }
+}
